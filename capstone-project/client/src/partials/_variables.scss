@@ -1,0 +1,16 @@
+@use './colors' as *;
+
+//screen size
+$desktop-size:1280px;
+$tablet-size:767px;
+$mobile-size:320px;
+
+$arrow-dropdown: url(../assets/Icons/arrow_drop_down-24px.svg);
+$searchIcon : url(../assets/Icons/search-24px.svg);
+
+//logo size
+$logo-height:1.6rem;
+$logo-width: 7.5rem;
+
+//divider
+$divider: 1px solid $secondary-color-cloud;

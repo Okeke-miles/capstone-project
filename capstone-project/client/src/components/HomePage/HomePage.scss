@@ -1,0 +1,27 @@
+@use "../../partials/_colors" as *;
+@use "../../partials/typographys" as *;
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.title__style{
+   font-size: 3rem;
+}
+
+.hero-image__style{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.collage__style{
+    height: 60rem;
+    width: 65rem;
+}
+
+.homePhoto{
+    height: 43rem;
+}
+
+.cinemaPhoto{
+    height: 43rem;
+}
