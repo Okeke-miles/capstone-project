@@ -9,7 +9,7 @@ import {DateTimePickerComponent} from "@syncfusion/ej2-react-calendars";
 function VideoDetails(){
 
     const [videoDetails, setVideoDetails] = useState(null);
-    // const [newShowing, setNewShowing] = useState(null)
+    const [date, setDate] = useState(null)
     const { videoId } = useParams();
 
     useEffect(()=> {
@@ -22,9 +22,9 @@ function VideoDetails(){
             })
     }, [videoId])
 
-    const updateShowing = (event) => {
-        event.preventDefault()
-        const newEdit = {showing: event.target.showing.value}
+    const updateShowing = (date) => {
+        const newEdit = {showing: date.value}
+        setDate(null);
         axios.put(`/api/videos/${videoId}`, newEdit
         )
         .then(res => {
@@ -42,7 +42,7 @@ function VideoDetails(){
         })
     }
 
-
+    const minDate = new Date()
 
     if (videoDetails == null) {
         return <main>Loading...</main>
@@ -66,15 +66,22 @@ function VideoDetails(){
                 <div className="showing__style">Showing: {showing}                
                 </div>
                 <form onSubmit={(e)=>{
-                e.preventDefault()
-                // e.target.reset()
-                updateShowing(e)
-                }}>
-                    <label htmlFor="showing">Date</label>
-                    <input type="text" name= "showing"placeholder="new show time"/>
-                    <button type="submit" >Submit</button>
+                    e.preventDefault()
+                    // updateShowing(e)
+                    }}>
+                        {/* <label htmlFor="showing">Date</label>
+                        <input type="text" name= "showing"placeholder="new show time"/> */}
+                    <DateTimePickerComponent placeholder="Choose a preferred date and time"
+                    min={minDate}
+                    format="yyyy-MM-dd HH:mm:ss"
+                    value={null}
+                    onChange={ (date)=>{updateShowing(date)
+                    }}
+                    >
+                    </DateTimePickerComponent>
+                    <button className="edit-btn__style" type="submit" >Submit</button>
                 </form>
-                <DateTimePickerComponent placeholder="Choose a date and time"></DateTimePickerComponent>
+               
             </div>
         </main>
        

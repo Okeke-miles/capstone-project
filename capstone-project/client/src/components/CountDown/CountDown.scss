@@ -1,0 +1,27 @@
+@use "../../partials/_colors" as *;
+@use "../../partials/_typographys" as *;
+@use "../../partials/_mixins" as *;
+@use "../../partials/_variables" as *;
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.countdown__style{
+    font-family: "Amazon font";
+    width: 85%;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: row-reverse;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.countdown-img__style{
+    margin-right:2rem;
+}

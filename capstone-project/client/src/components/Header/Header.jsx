@@ -1,39 +1,47 @@
 import "../Header/Header.scss"
-// import logo from '../../assets/logo/inStock-logo.png'
-import {Link} from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import wwlogo from '../../assets/logo/ww_.png'
 
 const Header = () => {
     return (
-        <nav className="page-header">
-            <div className="page-header__logo-wrapper">
-                <p className="header-name__style">WiiWatch</p>
-            </div>
-            <div className="page-header__wrapper">
-                <Link 
-                    // className={path === "/" ? "page-header__link page-header__link--active" : "page-header__link"} 
-                    to="/">
+        <div className="header-container">
+            <nav className="page-header">
+                <div className="page-header__logo-wrapper">
+                    <Link className="logo-link__style" to= "/">
+                    <p className="header-name__style">WiiWatch
+                    <img className="wwLogo" src={wwlogo} alt="ww logo" /></p>
+                    </Link>
+                </div>
+                <div className="page-header__wrapper">
+                    <NavLink className="nav-list__item" to="/">
                         Home
-                </Link>
-                <Link 
-                    // className={path === "/" ? "page-header__link  page-header__link--active" : "page-header__link"} 
-                    to="/schedule">
-                        Schedule
-                </Link>
-                <Link 
-                    // className={path === "/" ? "page-header__link  page-header__link--active" : "page-header__link"} 
-                    to="/videos">
-                        Get Started
-                </Link>
-                <Link 
-                    to="/videos">
-                        Sign In
-                </Link>
-                <Link 
-                    to="/nextvideo">
-                        Next Video
-                </Link>
-            </div>
-        </nav>
+                    </NavLink>
+                    {/* <NavLink className="nav-list__item" to="/schedule">
+                        View Schedule
+                    </NavLink> */}
+                    <NavLink className="nav-list__item" to="/videos">
+                        Content
+                    </NavLink>
+                    <NavLink className="nav-list__item" to="/nextvideo">
+                        Watch Next Video
+                    </NavLink>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Menu</button>
+                    <div class="dropdown-content">
+                        <NavLink className="menu-list__item" to="/nextvideo">
+                            Watch Next Video
+                        </NavLink>
+                        <NavLink className="menu-list__item" to="/videos">
+                            Content
+                        </NavLink>
+                        <NavLink className="menu-list__item" to="/">
+                            Home
+                        </NavLink>
+                    </div>
+                </div>
+            </nav>
+        </div>
     )
 }
 

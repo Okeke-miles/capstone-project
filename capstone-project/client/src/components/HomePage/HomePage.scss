@@ -3,25 +3,96 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/variables" as *;
 
-.title__style{
-   font-size: 3rem;
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.hero-image__style{
-    height: 100%;
+.home-container__style{
+    font-family: "Amazon font";
     width: 100%;
-    background-color: black;
+    margin-top: 3rem;
+    background-color:  $secondary-color-cloud;
+    color: $raisin-black;
+    margin-top: 0;
+    padding-top:3rem;
 }
 
-.collage__style{
-    height: 60rem;
-    width: 65rem;
+.title-description__style{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    @include tablet{
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+    }
 }
 
-.homePhoto{
-    height: 43rem;
+.homePhoto, .cinemaPhoto, .collage__style{
+    width:30rem;
+    margin-left: 3rem;
+    height: 15rem;
+    border-radius: 5px;
+    @include tablet{
+    width: 30rem;
+    height: 15rem;
+    border-radius: 5px;
+    }
 }
 
-.cinemaPhoto{
-    height: 43rem;
+.desc-section__style{
+    width: 80%;
 }
+
+.first-desc__style, .cinema-desc__style, .shows-desc__style{
+    width:100%;
+    padding-left: 2rem;
+    @include tablet{
+    display: flex;
+    border-top: 5px solid $cultured;
+    padding: 2rem 0;
+    padding-left: 7rem;
+    }
+}
+
+.first-desc__style, .shows-desc__style{
+    background-color: $cultured;
+    height: 20rem;
+}
+.feature-description__style{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-left:0rem;
+    @include tablet{
+    width: 60%;
+    font-size: 1.4rem;
+    color: $raisin-black;
+    font-weight: 400;
+    line-height:2.5rem;
+    }
+}
+
+.mobile-description__style{
+    width: 70%;
+    margin: 0 auto;
+    @include tablet{
+        display: none;
+    }
+}
+
+.theater-desc__style{
+    display: none;
+    @include tablet{
+    margin-left: 5rem;
+    display: initial
+    }
+}
+
+
+

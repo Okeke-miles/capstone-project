@@ -1,0 +1,60 @@
+@use "../../partials/_colors" as *;
+@use "../../partials/_typographys" as *;
+@use "../../partials/_mixins" as *;
+@use "../../partials/_variables" as *;
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.videodetails-container__style{
+    font-family: "Amazon font";
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    @include tablet{
+    display: flex;
+    }
+}
+
+.details-desc__style{
+    margin-left: 2rem;
+    min-width: 20rem;
+}
+
+.channel__style, .showing__style, .genre__style, .details-description__style, .language__style, .duration__style, .year__style{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.back-link__style{
+    color: $raisin-black;
+    text-decoration: none;
+}
+
+.image__style{
+    max-height: 35rem;
+    max-width: 30rem;
+}
+.desc-title__style{
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.edit-btn__style{
+    background-color: $columbia-blue;
+    color: $white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: transparent;
+    width: 5rem;
+    margin-bottom: 1rem;
+}

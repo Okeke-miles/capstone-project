@@ -1,35 +1,100 @@
 const express = require("express");
 const router = express.Router();
 const Moment = require("moment");
-const videoList = require("../data/videos.json")
+const mongoose = require('mongoose');
+
+const VideoModel = require('../models/Video')
+
+
+router.post('/add', async (req, res) => {
+    const title = req.body.title
+    const channel = req.body.channel
+    const image = req.body.image
+    const description = req.body.description
+    const duration = req.body.duration
+    const genre = req.body.genre
+    const videoLink = req.body.video
+    const showing = req.body.showing
+    const time = req.body.time
+    const language = req.body.language
+    const year = req.body.year
+
+    const AddedVideo = new VideoModel ({
+    title: title,
+    channel: channel,
+    image: image,
+    description: description,
+    duration: duration,
+    genre: genre,
+    video: videoLink,
+    showing: showing,
+    time: time,
+    language: language,
+    year: year
+   })
+   try{
+       await AddedVideo.save();
+       res.send("data is added")
+   } catch(err){
+       console.log(err)
+   }
+})
 
 
 router.get('/videos', (_req, res) => {
-    res.status(200).json(videoList);
+    VideoModel.find({}, (err, result)=>{
+        if (err) {
+            res.send(err)
+        }
+        res.send(result)
+    })
 })
 
 router.get('/nextvideo', (_req, res) => {
-    const sortedVideos = videoList.sort((a, b)=> new Date(a.showing) - new Date(b.showing))
-    // const endTime = currentVideo.map(video=>(Moment.duration(video.duration, "minutes")))
-    // const newEndTime = currentVideo.map(video=>(Moment(video.showing).add(endTime, "minutes").toDate()))
-    const upcomingVideos = sortedVideos.filter((video)=> {
-        endTime=Moment.duration(video.duration, "minutes")
-        newEndTime= Moment(video.showing).add(endTime, "minutes").toDate()
-        return Moment().isBefore(newEndTime)
-    })
-    // res.status(200).json(newVideos);
-    res.status(200).json(upcomingVideos);
-})
 
+    VideoModel.find({}, (err, result)=>{
+        if (err) {
+            console.log(err)
+        }
+        const sortedVideos = result.sort((a, b)=> new Date(a.showing) - new Date(b.showing))
+
+        const upcomingVideos = sortedVideos.filter((video)=> {
+            endTime=Moment.duration(video.duration, "minutes")
+            newEndTime= Moment(video.showing).add(endTime, "minutes").toDate()
+            return Moment().isBefore(newEndTime)
+        })
+        res.status(200).json(upcomingVideos)     
+        })
+    })
 
 router.get('/videos/:videoId', (req, res) => {
     let { videoId } = req.params;
-    const videoInfo = videoList.find(video => video.id === videoId)
-    if(!videoInfo) {
+    const videoInfo = VideoModel.findOne({_id : videoId }, (err, result)=>{
+    if(err) {
     res.status(400).send(`There is no video with id of ${videoId}`)
     }
-    res.status(200).json(videoInfo)
-    
+    res.status(200).json(result)  
+    }
+    )}
+)
+
+//Edit Video
+router.put('/videos/:videoId', async (req, res) => {
+    const newShowing = req.body.showing
+    const { videoId } = req.params;
+
+    try{
+        await VideoModel.findById(videoId, (_err, updatedVideo)=>{
+            updatedVideo.showing = newShowing;
+            console.log(updatedVideo.showing)
+            updatedVideo.save();
+            res.send(updatedVideo)
+        })
+    } catch(err) {
+        console.log(err)
+    }
+   
 })
+
 
 module.exports = router;

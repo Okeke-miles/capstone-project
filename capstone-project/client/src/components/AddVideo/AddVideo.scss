@@ -2,7 +2,6 @@
 @use "../../partials/_typographys" as *;
 @use "../../partials/_mixins" as *;
 @use "../../partials/_variables" as *;
-@import url("https://cdn.syncfusion.com/ej2/material.css");
 
 *,
 *::before,
@@ -12,17 +11,25 @@
     padding: 0;
 }
 
-.videoplayer__style{
+.form__style{
     font-family: "Amazon font";
-    width: 85%;
+    width: 80%;
     margin: 0 auto;
 }
 
-#videoplayer{
-    margin: 2rem 0;
+.form-group{
+    margin: 1rem 0
 }
 
-.mute-btn__style{
+.label__style{
+    padding-right: 2rem;
+}
+
+.flex__style{
+    display:flex;
+}
+
+.btn-primary{
     background-color: $columbia-blue;
     color: $white;
     border-radius: 5px;
@@ -30,15 +37,7 @@
     border: transparent;
     width: 5rem;
     margin-bottom: 1rem;
-    display: none;
 }
 
-.mute-hidden__style{
-    background-color: $columbia-blue;
-    color: $white;
-    border-radius: 5px;
-    cursor: pointer;
-    border: transparent;
-    width: 5rem;
-    margin-bottom: 1rem;
-}
+
+

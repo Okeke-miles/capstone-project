@@ -1,0 +1,60 @@
+@use "../../partials/_colors" as *;
+@use "../../partials/_typographys" as *;
+@use "../../partials/_mixins" as *;
+@use "../../partials/_variables" as *;
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// .page-header{
+//     width: 90%;
+//     margin: 0 auto;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding-bottom: 1rem;
+// }
+
+.footer-container{
+    font-family: "Amazon font";
+    background-color: $columbia-blue;
+    display: flex;
+}
+
+// .support__style{
+//     display: flex;
+
+// }
+
+.youtube-logo__style{
+    height: 2rem;
+    width: 8rem;
+}
+
+// .contact-details__style{
+//     display:flex;
+//     flex-direction: row;
+// }
+
+.contact__style{
+    margin-left: 1.5rem;
+}
+
+.footer-content__style{
+    display:flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: row;
+    color: $white
+}
+
+.footer__link{
+    text-decoration: none;
+    color: $white;
+}

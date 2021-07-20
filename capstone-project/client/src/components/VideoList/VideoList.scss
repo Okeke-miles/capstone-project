@@ -1,7 +1,52 @@
+@use "../../partials/_colors" as *;
+@use "../../partials/_typographys" as *;
+@use "../../partials/_mixins" as *;
+@use "../../partials/_variables" as *;
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.videolist__style{
+	font-family: "Amazon font";
+}
+
+.videolist-container__style{
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+.sports__style, .religion__style, .lifestyle__style, .music__style{
+	// background-color: $secondary-color-cloud;
+	color: $raisin-black;
+}
+
+.sports-container__style, .religion-container__style, .lifestyle-container__style, .music-container__style{
+	display:flex;
+	// background-color: $secondary-color-cloud;
+	flex-flow: wrap;
+	padding-bottom: 1.5rem;
+}
+
+.health-container__style, .tech-container__style, .wildlife-container__style, .watchlist-container__style{
+	display:flex;
+	flex-flow: wrap;
+	padding-bottom: 1.5rem;
+}
+
+
+h2{
+	font-size: 2rem;
+}
+
 .image-container {
 	position: relative;
 	transition: transform 0.2s;
-    border: 2px solid blue
 }
 
 .image-container:hover {
@@ -23,4 +68,23 @@
 	font-size: 20px;
 	padding: 20px;
 	text-align: center;
+}
+
+.thumbnail__style{
+	margin: 1rem;
+}
+
+.watchlist__style{
+	font-size: 1.5rem;
+	margin-left:1rem;
+}
+
+.add-button__style{
+	color: $raisin-black;
+	margin-left: 1rem;
+	padding-bottom: 1.5rem;
+}
+
+a {
+	text-decoration: none;
 }

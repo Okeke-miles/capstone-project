@@ -1,0 +1,22 @@
+@use "../../partials/_colors" as *;
+@use "../../partials/_typographys" as *;
+@use "../../partials/_mixins" as *;
+@use "../../partials/_variables" as *;
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.search__style{
+    font-family: "Amazon font";
+    text-align: right;
+    // background-color: $secondary-color-cloud;
+}
+
+.search-input__style{
+    background-color: white;
+}

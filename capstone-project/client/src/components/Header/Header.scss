@@ -1,0 +1,113 @@
+@use "../../partials/_colors" as *;
+@use "../../partials/_typographys" as *;
+@use "../../partials/_mixins" as *;
+@use "../../partials/_variables" as *;
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.page-header{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.page-header__logo-wrapper{
+    display:flex;
+}
+
+.header-container{
+    font-family: "Amazon font";
+    background-color: $columbia-blue;
+}
+
+.header-name__style{
+    color: $white;
+    font-weight: 600;
+    font-size: 1.3rem; 
+}
+
+.nav-list__item{
+    display: none;
+    @include tablet{
+        display: initial;
+        text-decoration: none;
+        margin-left:3rem;
+        color: $white
+    }
+}
+
+.menu-list__item{
+    text-decoration: none;
+    color: $white;
+    @include tablet{
+        display: none;
+    }
+}
+
+.dropbtn {
+    background-color: $columbia-blue;
+    color: $white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+    @include tablet{
+        display: none;
+    }
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+
+.dropdown-content a {
+    color: $raisin-black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+  
+
+.dropdown:hover .dropbtn {
+    background-color: $secondary-color-slate;
+}
+
+.logo-link__style{
+    text-decoration: none;
+    margin-left:3rem;
+    color: $white
+}
+
+.wwLogo{
+    height: 3rem;
+    width: 4rem;
+    margin-left: 0.5rem;
+}

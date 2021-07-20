@@ -3,15 +3,17 @@ import ReactPlayer from 'react-player';
 import Moment from "moment";
 import axios from "axios";
 import CountDown from "../CountDown/CountDown"
+import "../VideoPlayer/VideoPlayer.scss"
 
 Moment().format()
+
 
 function VideoPlayer() {
     
     const [ videoList, setVideoList] = useState(null)
     const [ newVideo, setNewVideo] = useState(null)
     const [ currentIndex, setCurrentIndex] = useState(0)
-    const playerRef = useRef(null)
+    const [mute, setMute] = useState(true)
 
     useEffect(() => {
         axios.get(`/api/nextvideo`)
@@ -42,7 +44,6 @@ function VideoPlayer() {
     console.log(newVideo.showing)
     let timestart = currentTime.diff(newTime, "seconds")
 
-    console.log(timestart)
     const url=`${newVideo.video}${timestart}`
 
     const endTime = Moment.duration(newVideo.duration, "minutes")
@@ -62,29 +63,36 @@ function VideoPlayer() {
     console.log("newEndTime", newEndTime)
     console.log("endTime", endTime)
 
-    // const toggleMute = () => {
-    //     playerRef.current.internalPlayer.toggleMute()
-    //     }
+    function disableMute(e) { 
+        e.preventDefault()
+        if (mute === true) {
+        setMute(false)}
+        else{
+            setMute(true)
+        }
+    } 
+
 
     return (
 
         currentTime.isAfter(newVideo.showing) && currentTime.isBefore(newEndTime) ?
-   <>
-     <ReactPlayer
-        url={ url }
-        playing={ true}
-        controls={true}
-        autoPlay={true}
-        muted={true}
-        ref={playerRef}
-        onEnded={()=>nextPlay()}
-        
-        // style={{ pointerEvents: 'none' }}
-      />
-      <button onClick={() => playerRef.current.unmute}>Volume</button>
-   </>
-   : <CountDown videoList={newVideo} timestart={newVideo.showing}/> 
+   
+    <div className="videoplayer__style">
+        <ReactPlayer id="videoplayer"
+            url={ url }
+            playing={ true}
+            controls={true}
+            autoPlay={true}
+            muted={mute}
+            onEnded={()=>nextPlay()}
+            style={{ pointerEvents: 'none' }}
+        />
+        <button className={!mute ? "mute-btn__style" : "mute-hidden__style"}  onClick={(e)=>{disableMute(e)}} type="button">Unmute</button>
+    </div>
+    : <CountDown videoList={newVideo} timestart={newVideo.showing}/> 
+    
     )
+    
 }
 
 export default VideoPlayer
