@@ -4,13 +4,15 @@
 In this project, I simulated a professional work environment. I made sketches of how the design would look before proceeding. I used a pseudo kanban board to list tasks and tick them off based on completion.
 
 TOOLS
-I used Sass fpr the styling. 
-I used Moment for time manipulation.
-I used a two step authentication.
+I used Sass for the styling. 
+I used several libraries such as Moment for time manipulation, react player for video player, fuse for my search bar and much more.
+I used MongoDB for my database.
 
 
 IF I HAD MORE TIME
 If I had more time, I would refactor some of the code to keep up to date with DRY principles.
+
+I would also build an authentication method for users.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
