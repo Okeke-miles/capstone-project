@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 import "../AddVideo/AddVideo.scss"
 
 function AddVideo( ){
 
+    //My Form to add videos
     const addVideo = (e) => {
         e.preventDefault();
         const newVideo = {
@@ -19,18 +20,34 @@ function AddVideo( ){
             video: e.target.video.value
         }
         axios.post(`/api/add`, newVideo)
-        .then(response =>{
-        console.log(response)
+        .then(res =>{
+        console.log(res)
         })
+        axios.get(`/api/videos`)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+        //After submitting form, it takes you back to video list page.
+    const history = useHistory()
+    const goBack = () => {
+    history.go(-1)
     }
 
     return(
         <div className="form__style">
-            <h2>Add and Schedule Your Own Video</h2>
-            <form onSubmit={(e)=>{
+            <h2 form-title__style>Add Your Own Video</h2>
+            <form 
+                type="reset" 
+                defaultValue="Reset"
+                onSubmit={(e)=>{
                 e.preventDefault()
-                e.target.reset()
                 addVideo(e)
+                goBack()
             }}>
                     <div className="form-group">
                         <label className="label__style" htmlFor="image">Image</label>

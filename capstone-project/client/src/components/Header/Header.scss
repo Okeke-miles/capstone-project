@@ -25,8 +25,9 @@
 }
 
 .header-container{
-    font-family: "Amazon font";
+    font-family: $primary-font;
     background-color: $columbia-blue;
+    padding: 1rem 0;
 }
 
 .header-name__style{

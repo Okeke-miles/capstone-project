@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
-import { NavLink, Link } from "react-router-dom";
-import Search from "../Search/Search";
+import { NavLink } from "react-router-dom";
+import Search from "../../components/Search/Search";
 import Fuse from "fuse.js"
 import "../VideoList/VideoList.scss"
-import WatchList from '../WatchList/WatchList';
-import RemoveWatchList from '../RemoveWatchList/RemoveWatchList';
-import AddVideo from '../AddVideo/AddVideo';
+import WatchList from '../../components/WatchList/WatchList';
+import RemoveWatchList from "../../components/RemoveWatchList/RemoveWatchList";
+
 
 
 function VideoList (){
     const [ videoList, setVideoList] = useState([])
-    const [searchValue, setSearchValue] = useState('');
     const [watchList, setWatchList] = useState([]);
 
-
+//API to get the list of videos
     useEffect(() => {
         axios.get(`/api/videos`)
             .then(res => {
@@ -66,7 +65,7 @@ function VideoList (){
 
     const removeWatchListVideo = (video) => {
 		const newWatchList = watchList.filter(
-			(item) => item.id !== video.id
+			(item) => item._id !== video._id
 		);
 
 		setWatchList(newWatchList);
@@ -82,6 +81,7 @@ function VideoList (){
     const musicVideoGenre = videoList.filter(video=> video.genre === "music")
     const otherVideoGenre = videoList.filter(video=> video.genre !== "music" && video.genre !== "sports" && video.genre !== "health" && video.genre !== "religion" && video.genre !== "tech" && video.genre !== "lifestyle" && video.genre !== "wildlife")
 
+
     return(
         <>
         <div className="videolist-container__style">
@@ -92,7 +92,7 @@ function VideoList (){
                     <h2 className="sports__style" >Sports</h2>
                         <nav className="sports-container__style">
                             {sportsVideoGenre.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video._id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}
@@ -107,7 +107,7 @@ function VideoList (){
                         <h2 className="health__style">Health</h2>
                         <nav className="health-container__style">
                             {healthVideoGenre.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video._id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}
@@ -122,7 +122,7 @@ function VideoList (){
                         <h2 className="religion__style">Religion</h2>
                         <nav className="religion-container__style">
                             {religiousVideoGenre.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video._id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}
@@ -137,7 +137,7 @@ function VideoList (){
                         <h2 className="tech__style">Tech</h2>
                         <nav className="tech-container__style">
                             {techVideoGenre.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video._id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}
@@ -152,7 +152,7 @@ function VideoList (){
                         <h2 className="lifestyle__style">LifeStyle</h2>
                         <nav className="lifestyle-container__style">        
                             {lifestyleVideoGenre.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video._id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}
@@ -167,7 +167,7 @@ function VideoList (){
                         <h2 className="wildlife__style">WildLife</h2>
                         <nav className="wildlife-container__style">
                             {wildlifeVideoGenre.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video._id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}
@@ -182,7 +182,7 @@ function VideoList (){
                         <h2 className="music__style">Music</h2>
                         <nav className="music-container__style">    
                             {musicVideoGenre.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video._id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}
@@ -197,7 +197,7 @@ function VideoList (){
                         <p className="watchlist__style">MY WATCHLIST</p>
                         <div className="watchlist-container__style">
                         {watchList.map(video => (
-                            <div key={video.id} className='image-container d-flex justify-content-start m-3'>
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
                                 <NavLink to={`videos/${video.id}`}>
                                     <img className="thumbnail__style" 
                                     key={video.id}

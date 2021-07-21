@@ -16,14 +16,11 @@ const Header = () => {
                     <NavLink className="nav-list__item" to="/">
                         Home
                     </NavLink>
-                    {/* <NavLink className="nav-list__item" to="/schedule">
-                        View Schedule
-                    </NavLink> */}
                     <NavLink className="nav-list__item" to="/videos">
-                        Content
+                        Video List
                     </NavLink>
                     <NavLink className="nav-list__item" to="/nextvideo">
-                        Watch Next Video
+                        Watch Live
                     </NavLink>
                 </div>
                 <div class="dropdown">

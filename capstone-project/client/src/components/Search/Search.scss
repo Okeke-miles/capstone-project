@@ -12,11 +12,10 @@
 }
 
 .search__style{
-    font-family: "Amazon font";
+    font-family: $primary-font;
     text-align: right;
-    // background-color: $secondary-color-cloud;
 }
 
 .search-input__style{
-    background-color: white;
+    background-color: $white;
 }

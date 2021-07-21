@@ -4,6 +4,7 @@
 @use "../../partials/_variables" as *;
 @import url("https://cdn.syncfusion.com/ej2/material.css");
 
+
 *,
 *::before,
 *::after{
@@ -13,13 +14,15 @@
 }
 
 .videoplayer__style{
-    font-family: "Amazon font";
+    font-family: $primary-font;
     width: 85%;
     margin: 0 auto;
 }
 
 #videoplayer{
     margin: 2rem 0;
+    width: 80vw;
+    height: 100vh;
 }
 
 .mute-btn__style{
@@ -41,4 +44,22 @@
     border: transparent;
     width: 5rem;
     margin-bottom: 1rem;
+    margin-left: -3rem;
+}
+
+.fullscreen-btn__style{
+    background-color: $columbia-blue;
+    color: $white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: transparent;
+    width: 5rem;
+    margin-bottom: 1rem;
+}
+
+.dynamic-btn__style{
+    display:flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
 }

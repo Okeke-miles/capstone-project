@@ -1,5 +1,4 @@
 import "../Footer/Footer.scss"
-import { Link, NavLink } from 'react-router-dom'
 import youtube from "../../assets/logo/yt_logo.png"
 
 const Footer = () => {

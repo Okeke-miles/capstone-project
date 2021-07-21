@@ -12,14 +12,15 @@
     padding: 0;
 }
 
+
 .countdown__style{
     font-family: "Amazon font";
     width: 85%;
     margin: 0 auto;
     display:flex;
     flex-direction: row-reverse;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: $margin + 3;
+    margin-bottom: $margin + 0.5;
 }
 
 .countdown-img__style{

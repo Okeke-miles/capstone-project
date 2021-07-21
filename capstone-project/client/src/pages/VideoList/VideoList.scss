@@ -12,7 +12,7 @@
 }
 
 .videolist__style{
-	font-family: "Amazon font";
+	font-family: $primary-font;
 }
 
 .videolist-container__style{
@@ -22,23 +22,20 @@
 
 
 .sports__style, .religion__style, .lifestyle__style, .music__style{
-	// background-color: $secondary-color-cloud;
 	color: $raisin-black;
 }
 
 .sports-container__style, .religion-container__style, .lifestyle-container__style, .music-container__style{
 	display:flex;
-	// background-color: $secondary-color-cloud;
 	flex-flow: wrap;
-	padding-bottom: 1.5rem;
+	padding-bottom: $padding;
 }
 
 .health-container__style, .tech-container__style, .wildlife-container__style, .watchlist-container__style{
 	display:flex;
 	flex-flow: wrap;
-	padding-bottom: 1.5rem;
+	padding-bottom: $padding;
 }
-
 
 h2{
 	font-size: 2rem;
@@ -75,14 +72,14 @@ h2{
 }
 
 .watchlist__style{
-	font-size: 1.5rem;
+	font-size: $font-size;
 	margin-left:1rem;
 }
 
 .add-button__style{
 	color: $raisin-black;
 	margin-left: 1rem;
-	padding-bottom: 1.5rem;
+	padding-bottom: $padding;
 }
 
 a {

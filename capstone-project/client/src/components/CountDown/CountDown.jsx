@@ -1,6 +1,4 @@
 import { useState, useEffect, } from 'react'
-import Moment from "moment";
-import axios from "axios"
 import "../CountDown/CountDown.scss"
 
 function CountDown( { timestart, videoList }){
@@ -18,8 +16,7 @@ function CountDown( { timestart, videoList }){
                 hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
                 minutes: Math.floor((difference / 1000 / 60) % 60),
                 seconds: Math.floor((difference / 1000) % 60)
-            };
-              
+            };       
         }
 
         return timeLeft
@@ -55,12 +52,12 @@ function CountDown( { timestart, videoList }){
       if (timerComponents.length===0){
             return refreshPage()
       }
-      console.log(timerComponents)
+
 
     return (
         <div className="countdown__style">
             <h1> {videoList.title} plays in: {timerComponents.length ? timerComponents : 
-            <span>Time's up!</span>} </h1> 
+            <span>Video has started!</span>} </h1> 
             <img className="countdown-img__style" src={videoList.image} alt={videoList.title}/>
         </div>
     )

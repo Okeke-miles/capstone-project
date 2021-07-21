@@ -12,14 +12,12 @@
     padding: 0;
 }
 
-
-
 .videodetails-container__style{
-    font-family: "Amazon font";
+    font-family: $primary-font;
     width: 80%;
     margin: 0 auto;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: $margin * 2;
+    margin-bottom: $margin * 2;
     @include tablet{
     display: flex;
     }
@@ -31,7 +29,7 @@
 }
 
 .channel__style, .showing__style, .genre__style, .details-description__style, .language__style, .duration__style, .year__style{
-    font-size: 1.5rem;
+    font-size: $font-size;
     margin-bottom: 1rem;
 }
 

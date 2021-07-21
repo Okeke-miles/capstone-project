@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const VideoModel = require('../models/Video')
 
 
+//Add a new video
 router.post('/add', async (req, res) => {
     const title = req.body.title
     const channel = req.body.channel
@@ -40,7 +41,7 @@ router.post('/add', async (req, res) => {
    }
 })
 
-
+//Get all videos
 router.get('/videos', (_req, res) => {
     VideoModel.find({}, (err, result)=>{
         if (err) {
@@ -50,6 +51,7 @@ router.get('/videos', (_req, res) => {
     })
 })
 
+//Get the next video based on earliest date
 router.get('/nextvideo', (_req, res) => {
 
     VideoModel.find({}, (err, result)=>{
@@ -67,6 +69,7 @@ router.get('/nextvideo', (_req, res) => {
         })
     })
 
+//Get a specific video
 router.get('/videos/:videoId', (req, res) => {
     let { videoId } = req.params;
     const videoInfo = VideoModel.findOne({_id : videoId }, (err, result)=>{
@@ -86,7 +89,6 @@ router.put('/videos/:videoId', async (req, res) => {
     try{
         await VideoModel.findById(videoId, (_err, updatedVideo)=>{
             updatedVideo.showing = newShowing;
-            console.log(updatedVideo.showing)
             updatedVideo.save();
             res.send(updatedVideo)
         })

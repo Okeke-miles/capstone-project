@@ -12,18 +12,21 @@
 }
 
 .form__style{
-    font-family: "Amazon font";
+    font-family: $primary-font;
     width: 80%;
     margin: 0 auto;
+    margin-top: 3rem;
 }
 
 .form-group{
-    margin: 1rem 0
+    margin: 1rem 0;
+    display:flex;
 }
 
 .label__style{
-    padding-right: 2rem;
+    width: 15rem;
 }
+
 
 .flex__style{
     display:flex;
@@ -36,7 +39,8 @@
     cursor: pointer;
     border: transparent;
     width: 5rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
+    height: 2rem;
 }
 
 

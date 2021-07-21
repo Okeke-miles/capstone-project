@@ -5,7 +5,6 @@ import "../RemoveWatchList/RemoveWatchList.scss"
 function RemoveWatchList() {
 	return (
 		<>
-			{/* <span className="remove-watchlist__style">Remove from favourites</span> */}
 			<img className="delete-icon__style" src={deleteIcon} alt="delete-icon"/>
 		</>
 	);

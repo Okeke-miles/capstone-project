@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
-import { BrowserRouter, Route, Link, useParams } from "react-router-dom";
-import editIcon from "../../assets/icon/edit-24px.svg"
+import { Link, useParams } from "react-router-dom";
 import "../VideoDetails/VideoDetails.scss"
-import EditShowing from "../EditShowing/EditShowing"
 import {DateTimePickerComponent} from "@syncfusion/ej2-react-calendars";
 
 function VideoDetails(){
@@ -21,6 +19,8 @@ function VideoDetails(){
                 console.log(err)
             })
     }, [videoId])
+
+    //Logic to edit "showing" in a video
 
     const updateShowing = (date) => {
         const newEdit = {showing: date.value}
@@ -67,10 +67,7 @@ function VideoDetails(){
                 </div>
                 <form onSubmit={(e)=>{
                     e.preventDefault()
-                    // updateShowing(e)
                     }}>
-                        {/* <label htmlFor="showing">Date</label>
-                        <input type="text" name= "showing"placeholder="new show time"/> */}
                     <DateTimePickerComponent placeholder="Choose a preferred date and time"
                     min={minDate}
                     format="yyyy-MM-dd HH:mm:ss"
@@ -79,7 +76,6 @@ function VideoDetails(){
                     }}
                     >
                     </DateTimePickerComponent>
-                    <button className="edit-btn__style" type="submit" >Submit</button>
                 </form>
                
             </div>

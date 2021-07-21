@@ -12,13 +12,12 @@
 }
 
 .home-container__style{
-    font-family: "Amazon font";
+    font-family: $primary-font;
     width: 100%;
-    margin-top: 3rem;
-    background-color:  $secondary-color-cloud;
+    margin-top: $margin * 2;
     color: $raisin-black;
     margin-top: 0;
-    padding-top:3rem;
+    padding-top: $padding * 2;
 }
 
 .title-description__style{
@@ -28,14 +27,14 @@
     @include tablet{
     width: 80%;
     margin: 0 auto;
-    margin-bottom: 3rem;
+    margin-bottom: $margin * 2;
     font-size: 1.3rem;
     }
 }
 
 .homePhoto, .cinemaPhoto, .collage__style{
     width:30rem;
-    margin-left: 3rem;
+    margin-left: $margin * 2;
     height: 15rem;
     border-radius: 5px;
     @include tablet{
@@ -54,18 +53,18 @@
     padding-left: 2rem;
     @include tablet{
     display: flex;
-    border-top: 5px solid $cultured;
+    border-top: 5px solid $columbia-blue;
     padding: 2rem 0;
-    padding-left: 7rem;
+    width:85%;
+    margin: 0 auto;
     }
 }
 
 .first-desc__style, .shows-desc__style{
-    background-color: $cultured;
     height: 20rem;
 }
 .feature-description__style{
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
     padding-top: 1rem;
     padding-left:0rem;
