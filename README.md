@@ -2,7 +2,7 @@
 # Getting Started with Create React App
 
 
-In this project, I simulated a professional work environment. I made sketches of how the design would look before proceeding. I used a pseudo kanban board to list tasks and tick them off based on completion.
+The project, titled WiiWatch is a cinema-themed application which enables users watch their favourite videos in-sync. In this project, I simulated a professional work environment. I made sketches of how the design would look before proceeding. I used a pseudo kanban board to list tasks and tick them off based on completion.
 
 TOOLS
 I used Sass for the styling. 
