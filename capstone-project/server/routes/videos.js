@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Moment = require("moment");
 const mongoose = require('mongoose');
+const withAuth = require('./../middleware');
 
 const VideoModel = require('../models/Video')
 
@@ -42,12 +43,13 @@ router.post('/add', async (req, res) => {
 })
 
 //Get all videos
-router.get('/videos', (_req, res) => {
+router.get('/videos', (req, res) => {
     VideoModel.find({}, (err, result)=>{
         if (err) {
             res.send(err)
-        }
+        } else {
         res.send(result)
+        }
     })
 })
 
@@ -92,7 +94,8 @@ router.put('/videos/:videoId', async (req, res) => {
             updatedVideo.save();
             res.send(updatedVideo)
         })
-    } catch(err) {
+    } 
+    catch(err) {
         console.log(err)
     }
    

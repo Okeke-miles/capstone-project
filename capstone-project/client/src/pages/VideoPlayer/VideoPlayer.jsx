@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player';
+import { NavLink } from "react-router-dom"
 import Moment from "moment";
 import axios from "axios";
 import CountDown from "../../components/CountDown/CountDown";
@@ -39,10 +40,11 @@ function VideoPlayer() {
         return ""
     }
 
+
     //Assign current time to a variable
     const currentTime = Moment();
  
-    let newTime = Moment(newVideo.showing)
+    let newTime = Moment(newVideo.showing).subtract(1, "seconds")
 
     //To get when a video starts, get the difference between the current time and the time scheduled for the video to start.
     let timestart = currentTime.diff(newTime, "seconds")
@@ -76,6 +78,7 @@ function VideoPlayer() {
     } 
 
 
+
     return (
         //If the current time is after when a video is scheduled to show but before the endtime, the react player will show. Else we see the countdown timer to the next video.
         
@@ -103,7 +106,8 @@ function VideoPlayer() {
             </button>
         </div>
     </div>
-    : <CountDown videoList={newVideo} timestart={newVideo.showing}/> 
+    : 
+        <CountDown videoList={newVideo} timestart={newVideo.showing}/> 
     
     )
     

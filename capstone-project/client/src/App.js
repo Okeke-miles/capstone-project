@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer"
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom"
 import VideoDetails from './components/VideoDetails/VideoDetails';
 import AddVideo from "./components/AddVideo/AddVideo"
+import Auth from "./components/Auth/Auth"
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
           <Route path="/nextvideo" component={VideoPlayer}/>
           <Route path="/videos/:videoId" component={VideoDetails}/>
           <Route path="/add" component={AddVideo}/>
+          <Route path="/auth" exact component={Auth}/>
         </Switch>
       </header>
     </div>

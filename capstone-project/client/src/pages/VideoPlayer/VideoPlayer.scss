@@ -25,6 +25,10 @@
     height: 100vh;
 }
 
+.cd__container{
+    height: 100vh;
+}
+
 .mute-btn__style{
     background-color: $columbia-blue;
     color: $white;
@@ -35,6 +39,7 @@
     margin-bottom: 1rem;
     display: none;
 }
+
 
 .mute-hidden__style{
     background-color: $columbia-blue;

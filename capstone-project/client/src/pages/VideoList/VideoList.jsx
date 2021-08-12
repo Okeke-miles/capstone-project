@@ -10,6 +10,7 @@ import RemoveWatchList from "../../components/RemoveWatchList/RemoveWatchList";
 
 
 function VideoList (){
+
     const [ videoList, setVideoList] = useState([])
     const [watchList, setWatchList] = useState([]);
 
@@ -72,6 +73,7 @@ function VideoList (){
         saveToLocalStorage(newWatchList);
 	};
 
+    
     const sportsVideoGenre = videoList.filter(video=> video.genre === "sports")
     const healthVideoGenre = videoList.filter(video=> video.genre === "health")
     const religiousVideoGenre = videoList.filter(video=> video.genre === "religion")
@@ -81,14 +83,30 @@ function VideoList (){
     const musicVideoGenre = videoList.filter(video=> video.genre === "music")
     const otherVideoGenre = videoList.filter(video=> video.genre !== "music" && video.genre !== "sports" && video.genre !== "health" && video.genre !== "religion" && video.genre !== "tech" && video.genre !== "lifestyle" && video.genre !== "wildlife")
 
-
     return(
+
         <>
+        
         <div className="videolist-container__style">
             <Search placeholder="Search"
             onChange={(e) => searchVideos(e.target.value)}/>
             <div >
                 <main className="videolist__style">
+                <h2 className="wildlife__style">WildLife</h2>
+                        <nav className="wildlife-container__style">
+                            {wildlifeVideoGenre.map(video => (
+                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
+                                <NavLink to={`videos/${video._id}`}>
+                                    <img className="thumbnail__style" 
+                                    key={video.id}
+                                    src={video.image} alt="video-thumbnail"/>
+                                </NavLink>
+                                <div className='overlay d-flex align-items-center justify-content-center' onClick={() => addWatchListVideo(video)}>
+                                    <WatchList />
+                                </div>
+                            </div>  
+                            ))}
+                        </nav>
                     <h2 className="sports__style" >Sports</h2>
                         <nav className="sports-container__style">
                             {sportsVideoGenre.map(video => (
@@ -164,21 +182,7 @@ function VideoList (){
                             </div>  
                             ))}
                         </nav>
-                        <h2 className="wildlife__style">WildLife</h2>
-                        <nav className="wildlife-container__style">
-                            {wildlifeVideoGenre.map(video => (
-                            <div key={video._id} className='image-container d-flex justify-content-start m-3'>
-                                <NavLink to={`videos/${video._id}`}>
-                                    <img className="thumbnail__style" 
-                                    key={video.id}
-                                    src={video.image} alt="video-thumbnail"/>
-                                </NavLink>
-                                <div className='overlay d-flex align-items-center justify-content-center' onClick={() => addWatchListVideo(video)}>
-                                    <WatchList />
-                                </div>
-                            </div>  
-                            ))}
-                        </nav>
+                        
                         <h2 className="music__style">Music</h2>
                         <nav className="music-container__style">    
                             {musicVideoGenre.map(video => (
