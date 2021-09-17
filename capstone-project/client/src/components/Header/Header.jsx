@@ -38,7 +38,7 @@ const Header = () => {
                         </NavLink>
                     </div>
                 </div>
-                <div>
+                {/* <div>
                 {user ? (
                     <div>
                         {user.result.name}
@@ -49,7 +49,7 @@ const Header = () => {
                         <button>Sign In</button>
                     </Link>
                 ) }
-            </div>
+            </div> */}
             </nav>
         </div>
     )
